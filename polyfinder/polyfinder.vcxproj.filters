@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{e8a2fbb8-1512-4b8d-9b93-f4462432ecaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cpu">
+      <UniqueIdentifier>{d51934d2-aba3-457e-930c-f95c273338db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gpu">
+      <UniqueIdentifier>{198317f2-0aa3-41ec-bb03-b546a944ce0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cpu\main">
+      <UniqueIdentifier>{d385ec55-337e-4eea-b0ee-dfa40b9d3c28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cpu\polyfinder">
+      <UniqueIdentifier>{f30a02a8-053d-4acf-b662-746cb5a00f54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gpu\kernel">
+      <UniqueIdentifier>{e8a88e9f-66cb-420b-a40d-5b18521a5cfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gpu\host">
+      <UniqueIdentifier>{e0b4ff37-4f58-4f4d-b4dc-dea104648d62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gpu\gpu_polyfinder">
+      <UniqueIdentifier>{5490c16c-3bb3-4b28-8d49-343b62057e9c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu_main.cpp">
+      <Filter>cpu\main</Filter>
+    </ClCompile>
+    <ClCompile Include="polyfinder.cpp">
+      <Filter>cpu\polyfinder</Filter>
+    </ClCompile>
+    <ClCompile Include="gpu_main.cpp">
+      <Filter>gpu\host</Filter>
+    </ClCompile>
+    <ClCompile Include="polyfinder_gpu.cpp">
+      <Filter>gpu\gpu_polyfinder</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cpu_main.h">
+      <Filter>cpu\main</Filter>
+    </ClInclude>
+    <ClInclude Include="polyfinder.h">
+      <Filter>cpu\polyfinder</Filter>
+    </ClInclude>
+    <ClInclude Include="gpu_main.h">
+      <Filter>gpu\host</Filter>
+    </ClInclude>
+    <ClInclude Include="polyfinder_gpu.h">
+      <Filter>gpu\gpu_polyfinder</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="polyfinder_kernel.cl">
+      <Filter>gpu\kernel</Filter>
+    </None>
+  </ItemGroup>
+</Project>

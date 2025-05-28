@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder_gpu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|solutionrelative:polyfinder\\polyfinder_gpu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|solutionrelative:polyfinder\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|solutionrelative:polyfinder\\polyfinder.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder_gpu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|solutionrelative:polyfinder\\polyfinder_gpu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\gpu_main.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|solutionrelative:polyfinder\\gpu_main.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\gpu_main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|solutionrelative:polyfinder\\gpu_main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder_kernel.cl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|solutionrelative:polyfinder\\polyfinder_kernel.cl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|solutionrelative:polyfinder\\polyfinder.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\cpu_main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|solutionrelative:polyfinder\\cpu_main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\cpu_main.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5C0FE65C-39B1-43C1-B499-0D1D6928AD30}|polyfinder\\polyfinder.vcxproj|solutionrelative:polyfinder\\cpu_main.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "polyfinder_gpu.cpp",
+              "DocumentMoniker": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder_gpu.cpp",
+              "RelativeDocumentMoniker": "polyfinder\\polyfinder_gpu.cpp",
+              "ToolTip": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder_gpu.cpp",
+              "RelativeToolTip": "polyfinder\\polyfinder_gpu.cpp",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-28T12:07:55.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "gpu_main.h",
+              "DocumentMoniker": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\gpu_main.h",
+              "RelativeDocumentMoniker": "polyfinder\\gpu_main.h",
+              "ToolTip": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\gpu_main.h",
+              "RelativeToolTip": "polyfinder\\gpu_main.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-28T12:07:12.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\main.cpp",
+              "RelativeDocumentMoniker": "polyfinder\\main.cpp",
+              "ToolTip": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\main.cpp",
+              "RelativeToolTip": "polyfinder\\main.cpp",
+              "ViewState": "AgIAABYAAAAAAAAAAAAYwCwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-28T12:04:59.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "polyfinder_gpu.h",
+              "DocumentMoniker": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder_gpu.h",
+              "RelativeDocumentMoniker": "polyfinder\\polyfinder_gpu.h",
+              "ToolTip": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder_gpu.h",
+              "RelativeToolTip": "polyfinder\\polyfinder_gpu.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-28T12:08:04.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "polyfinder.cpp",
+              "DocumentMoniker": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder.cpp",
+              "RelativeDocumentMoniker": "polyfinder\\polyfinder.cpp",
+              "ToolTip": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder.cpp",
+              "RelativeToolTip": "polyfinder\\polyfinder.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-28T12:06:04.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "gpu_main.cpp",
+              "DocumentMoniker": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\gpu_main.cpp",
+              "RelativeDocumentMoniker": "polyfinder\\gpu_main.cpp",
+              "ToolTip": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\gpu_main.cpp",
+              "RelativeToolTip": "polyfinder\\gpu_main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-28T12:07:17.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "polyfinder_kernel.cl",
+              "DocumentMoniker": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder_kernel.cl",
+              "RelativeDocumentMoniker": "polyfinder\\polyfinder_kernel.cl",
+              "ToolTip": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder_kernel.cl",
+              "RelativeToolTip": "polyfinder\\polyfinder_kernel.cl",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAcwGkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-28T12:06:53.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "polyfinder.h",
+              "DocumentMoniker": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder.h",
+              "RelativeDocumentMoniker": "polyfinder\\polyfinder.h",
+              "ToolTip": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\polyfinder.h",
+              "RelativeToolTip": "polyfinder\\polyfinder.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-28T12:06:00.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "cpu_main.h",
+              "DocumentMoniker": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\cpu_main.h",
+              "RelativeDocumentMoniker": "polyfinder\\cpu_main.h",
+              "ToolTip": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\cpu_main.h",
+              "RelativeToolTip": "polyfinder\\cpu_main.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-28T12:05:33.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "cpu_main.cpp",
+              "DocumentMoniker": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\cpu_main.cpp",
+              "RelativeDocumentMoniker": "polyfinder\\cpu_main.cpp",
+              "ToolTip": "C:\\Users\\MaisLaufen\\source\\repos\\polyfinder\\polyfinder\\cpu_main.cpp",
+              "RelativeToolTip": "polyfinder\\cpu_main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-28T12:05:25.021Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

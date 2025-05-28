@@ -1,0 +1,36 @@
+﻿  cpu_main.cpp
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\cpu_main.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  gpu_main.cpp
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\gpu_main.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+  main.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+  polyfinder.cpp
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder.cpp(66,41): warning C4244: аргумент: преобразование "__int64" в "long", возможна потеря данных
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder.cpp(83,26): warning C4244: аргумент: преобразование "long double" в "__int64", возможна потеря данных
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder.cpp(83,15): warning C4244: return: преобразование "long double" в "__int64", возможна потеря данных
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder.cpp(143,19): warning C4244: return: преобразование "double" в "__int64", возможна потеря данных
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder.cpp(168,12): warning C4334: <<: результат 32-разрядного смещения неявно преобразуется в 64-разрядное значение (предполагалось 64-разрядное смещение?)
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder.cpp(202,17): warning C4244: инициализация: преобразование "double" в "__int64", возможна потеря данных
+  polyfinder_gpu.cpp
+  cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(78,9): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "size_t"
+      C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(78,9):
+      рекомендуется использовать "%zd" в строке форматирования
+  
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(121,11): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "__int64"
+      C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(121,11):
+      рекомендуется использовать "%lld" в строке форматирования
+      C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(121,11):
+      рекомендуется использовать "%Id" в строке форматирования
+      C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(121,11):
+      рекомендуется использовать "%I64d" в строке форматирования
+  
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(33,6): warning C4101: kernelArgIndex: неиспользованная локальная переменная
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(29,18): warning C4101: j: неиспользованная локальная переменная
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(29,15): warning C4101: i: неиспользованная локальная переменная
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(34,12): warning C4101: candidate: неиспользованная локальная переменная
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(140,19): warning C4244: return: преобразование "double" в "__int64", возможна потеря данных
+C:\Users\MaisLaufen\source\repos\polyfinder\polyfinder\polyfinder_gpu.cpp(186,12): warning C4334: <<: результат 32-разрядного смещения неявно преобразуется в 64-разрядное значение (предполагалось 64-разрядное смещение?)
+  Создание кода...
+  polyfinder.vcxproj -> C:\Users\MaisLaufen\source\repos\polyfinder\x64\Debug\polyfinder.exe

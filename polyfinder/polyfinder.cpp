@@ -1,83 +1,55 @@
 #include "polyfinder.h"
 
+std::string folder = "output";
+
 using namespace std;
 
-namespace fs = std::filesystem;
-
-void append_int(std::string& text, int number) {
-	text += std::to_string(number);
-}
-
-polyfinder::polyfinder(unsigned short _m, unsigned short _t)
-{
-	m = _m; // message length
-	t = _t; // error count
-	d = 2 * t + 1; // min code distance
-	int w = d; // initial polynomial weight = min distance
+polyfinder::polyfinder(unsigned short _m, unsigned short _t) {
+	m = _m;
+	t = _t;
+	d = 2 * t + 1;
 	k = get_k(m, t);
 	n = get_n(m, k);
+}
+
+PolyfinderResult polyfinder::find_cyclic_polynom()
+{
 	long long full_count = 0;
-	iterations = 0;
-	count = 0;
-
-	std::string folder = "output";
-	if (!fs::exists(folder)) {
-		fs::create_directory(folder);
-	}
-
-	std::string filename = folder + "/";
-	append_int(filename, m);
-	filename += "_";
-	append_int(filename, t);
-	filename += ".txt";
-
-	std::ofstream fstream(filename);
-	if (!fstream) {
-		std::cerr << "Error while loading file: " << filename << std::endl;
-		return;
-	}
+	int w = d;
+	int stop = 0;
+	long long result = -1;
 
 	long long* candidates = new long long[10000000];
-	int stop = 0;
 	double start_time = omp_get_wtime();
 	omp_set_num_threads(1);
-	do
-	{
+	do {
 		candidates = get_candidates(k);
-		for (int i = 0; i < count; i++)
-		{
+		for (int i = 0; i < count; i++) {
 			full_count++;
-			if (!stop)
-			{
-				if (check_d(candidates[i]))
-				{
+			if (!stop) {
+				if (check_d(candidates[i])) {
 					double end_time = omp_get_wtime();
-					printf("full time: "); printf("%f - ", end_time - start_time);
-					printf("%llu ", iterations); printf("iterations\n");
-					printf("polynomials count: "); printf("%llu\n", full_count);
-					printf("%d,", m); printf("%d ", t);
 					if (!check_reminder(candidates[i])) {
-						cout << "\n# Polynom is cyclic! #\n" << candidates[i] << endl;
-						fstream << "polynom is cyclic!\n";
-						fstream << iterations << "iterations.\n";
-						fstream << "full time:" << (end_time - start_time) << "\n";
-						fstream << "full count:" << full_count << "\n";
-						fstream << "m: " << m << " t: " << t << "\n";
-						fstream << int_to_bin(candidates[i]);
-						fstream.close();
+						result = candidates[i];
 						stop = 1;
+						PolyfinderResult r;
+						r.polynom = result;
+						r.iterations = iterations;
+						r.time_seconds = end_time - start_time;
+						return r;
 					}
 				}
 			}
 		}
-		if (!stop)
-		{
+		if (!stop) {
 			k++;
 			n++;
 			w = d;
 		}
 	} while (!stop);
+	delete[] candidates;
 }
+
 long long polyfinder::codeword(long long data, long long generator) {
 	long double _data = data * pow((long double)2, getBitsLength(generator) - 1);
 	return _data + reminder(_data, generator);
@@ -128,17 +100,6 @@ int polyfinder::check_d(long long candidate) {
 	} while (data < pow(2, m));
 	return 1;
 }
-std::string polyfinder::int_to_bin(long decimal)
-{
-	if (decimal == 0) return "0";
-
-	std::string binary = "";
-	while (decimal > 0) {
-		binary = std::to_string(decimal % 2) + binary;
-		decimal /= 2;
-	}
-	return binary;
-}
 long long polyfinder::get_candidate(int k) {
 	return pow(2, k) + 1;
 }
@@ -165,7 +126,7 @@ int polyfinder::get_k(int  m, int  t)
 	{
 		count = 1;
 		n = k + m;
-		mask = 1 << k;
+		mask = static_cast<unsigned long long>(1) << k;
 		for (short i = 1; i <= t; i++)
 		{
 			fact1 = factorial(i, n);

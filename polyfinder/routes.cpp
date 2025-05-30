@@ -9,31 +9,17 @@ void register_routes(httplib::Server& svr) {
         int m_end = input["m_end"];
         int t_start = input["t_start"];
         int t_end = input["t_end"];
-        std::string mode = input.value("mode", "cpu"); // "cpu" или "gpu"
+        std::string mode = input.value("mode", "cpu");
 
-        json result_json = json::array();
+        json result_json;
 
-        for (int m = m_start; m <= m_end; ++m) {
-            for (int t = t_start; t <= t_end; ++t) {
-                polyfinder pf(m, t);
-                long long result;
-                if (mode == "gpu") {
-                    printf("user choise = gpu.");
-                    result = pf.find_cyclic_polynom();
-                }
-                else {
-                    printf("user choice = cpu.");
-                    result = pf.find_cyclic_polynom();
-                }
-
-                if (result != -1) {
-                    result_json.push_back({ {"m", m}, {"t", t}, {"polynom", result} });
-                }
-            }
+        if (mode == "gpu") { // gpu mode
+            result_json = cpu_main_multi_poly(m_start, m_end, t_start, t_end);
+        }
+        else { // cpu mode
+            result_json = cpu_main_multi_poly(m_start, m_end, t_start, t_end);
         }
 
-        json response;
-        response["results"] = result_json;
-        res.set_content(response.dump(), "application/json");
+        res.set_content(json{ {"results", result_json} }.dump(), "application/json");
         });
 }

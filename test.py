@@ -1,27 +1,32 @@
 import requests
 
-# Адрес сервера (предполагается, что C++ сервер запущен на localhost:8080)
 url = 'http://localhost:8080/find_polynomials'
 
-# Данные для запроса (m и t фиксированные)
 payload = {
     "m_start": 3,
     "m_end": 4,
     "t_start": 3,
     "t_end": 3,
-    "mode": "gpu"
+    "mode": "cpu"  # или "cpu"
 }
 
-# Отправка POST-запроса
 response = requests.post(url, json=payload)
 
-# Обработка результата
 if response.status_code == 200:
     data = response.json()
-    print(data)
-    print("Полученные полиномы:")
-    for item in data["results"]:
-        print(f"m = {item['m']}, t = {item['t']}, polynom = {item['polynom']}")
+    print("Полученные результаты:")
+    for item in data.get("results", []):
+        m = item["m"]
+        t = item["t"]
+        polynom = item.get("polynom")
+        iterations = item.get("iterations", "N/A")
+        time_sec = item.get("time_seconds", "N/A")
+        error = item.get("error")
+
+        if polynom is not None:
+            print(f"[OK] m={m}, t={t} → polynom: {polynom}, iterations: {iterations}, time: {time_sec:.4f}s")
+        else:
+            print(f"[ERR] m={m}, t={t} → ошибка: {error}, iterations: {iterations}, time: {time_sec:.4f}s")
 else:
-    print(f"Ошибка: {response.status_code}")
+    print(f"Ошибка HTTP: {response.status_code}")
     print(response.text)

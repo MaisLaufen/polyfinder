@@ -11,15 +11,31 @@ void register_routes(httplib::Server& svr) {
         int t_end = input["t_end"];
         std::string mode = input.value("mode", "cpu");
 
-        json result_json;
+        res.set_chunked_content_provider(
+            "application/json",
+            [=](size_t offset, httplib::DataSink& sink) {
+                sink.write("{\"results\":[", 13);
 
-        if (mode == "gpu") { // gpu mode
-            result_json = cpu_main_multi_poly(m_start, m_end, t_start, t_end);
-        }
-        else { // cpu mode
-            result_json = cpu_main_multi_poly(m_start, m_end, t_start, t_end);
-        }
+                bool first = true;
 
-        res.set_content(json{ {"results", result_json} }.dump(), "application/json");
+                for (int m = m_start; m <= m_end; ++m) {
+                    for (int t = t_start; t <= t_end; ++t) {
+                        json item;
+                        if (mode == "gpu") {
+                            item = gpu_main_single_poly(m, t);
+                        }
+                        else {
+                            item = cpu_main_single_poly(m, t);
+                        }
+                        std::string chunk = (first ? "" : ",") + item[0].dump();
+                        first = false;
+                        sink.write(chunk.c_str(), chunk.size());
+                    }
+                }
+                sink.write("]}", 2);
+                sink.done();
+                return true;
+            }
+        );
         });
 }

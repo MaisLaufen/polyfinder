@@ -24,6 +24,7 @@
 *.ilk
 *.iobj
 *.ipdb
+*.vcxproj.user
 
 # ==== Build output ====
 x64/

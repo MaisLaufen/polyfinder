@@ -136,12 +136,18 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="polyfinder.cpp" />
     <ClCompile Include="polyfinder_gpu.cpp" />
+    <ClCompile Include="routes.cpp" />
+    <ClCompile Include="server.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cpu_main.h" />
     <ClInclude Include="gpu_main.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="polyfinder.h" />
     <ClInclude Include="polyfinder_gpu.h" />
+    <ClInclude Include="polyfinder_result.h" />
+    <ClInclude Include="routes.h" />
+    <ClInclude Include="server.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="polyfinder_kernel.cl" />

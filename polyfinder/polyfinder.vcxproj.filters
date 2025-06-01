@@ -37,11 +37,23 @@
     <Filter Include="gpu\gpu_polyfinder">
       <UniqueIdentifier>{5490c16c-3bb3-4b28-8d49-343b62057e9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="core\server">
+      <UniqueIdentifier>{872f66b5-a2fd-49d8-9150-b2eeba4de5ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\entities">
+      <UniqueIdentifier>{13ea9578-1c4c-4e1b-a698-9a0bf3c59050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\main">
+      <UniqueIdentifier>{48ddab73-e35e-4a89-a755-1f04b77e87be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\routes">
+      <UniqueIdentifier>{b417cedf-e703-436c-86d9-7e0f6e82d9a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\entities\polyfinder_result">
+      <UniqueIdentifier>{5819c221-feb1-4d87-90f3-c87f011eaefc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>core</Filter>
-    </ClCompile>
     <ClCompile Include="cpu_main.cpp">
       <Filter>cpu\main</Filter>
     </ClCompile>
@@ -53,6 +65,15 @@
     </ClCompile>
     <ClCompile Include="polyfinder_gpu.cpp">
       <Filter>gpu\gpu_polyfinder</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>core\main</Filter>
+    </ClCompile>
+    <ClCompile Include="server.cpp">
+      <Filter>core\server</Filter>
+    </ClCompile>
+    <ClCompile Include="routes.cpp">
+      <Filter>core\routes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +88,18 @@
     </ClInclude>
     <ClInclude Include="polyfinder_gpu.h">
       <Filter>gpu\gpu_polyfinder</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>core\main</Filter>
+    </ClInclude>
+    <ClInclude Include="server.h">
+      <Filter>core\server</Filter>
+    </ClInclude>
+    <ClInclude Include="routes.h">
+      <Filter>core\routes</Filter>
+    </ClInclude>
+    <ClInclude Include="polyfinder_result.h">
+      <Filter>core\entities\polyfinder_result</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -3,42 +3,16 @@
 #define KERNEL_FILE "polyfinder_kernel.cl"
 
 polyfinder_gpu::polyfinder_gpu(unsigned short _m, unsigned short _t)
+	: m(_m), t(_t), stop(0), iterations(0)
 {
-	m = _m; // message length
-	t = _t; // error count
-	d = 2 * t + 1; // min code distance
-	int w = d; // initial polynomial weight = min distance
+	d = 2 * t + 1;
 	k = get_k(m, t);
 	n = get_n(m, k);
-	long long full_count = 0;
-	iterations = 0;
 	count = 0;
-	printf("polyfinder_gpu start with these parameters: \n");
-	printf("m: %d", m);
-	printf(", t: %d\n", t);
+}
 
+void polyfinder_gpu::init_opencl() {
 	cl_int error;
-	cl_platform_id platform;
-	cl_context context;
-	cl_device_id device;
-	cl_program program;
-	cl_command_queue queue;
-	char* kernelSource;
-	cl_kernel kernel;
-	size_t global_size, local_size;
-	unsigned int i, j;
-
-	// Data and buffers
-	int stop = 0;
-	int kernelArgIndex;
-	long long candidate;
-	long long result_candidate;
-	cl_mem candidates_buffer;
-	cl_mem stop_buffer;
-	cl_mem result_candidate_buffer;
-	long long* candidates = new long long[10000000];
-
-	// Kernel build
 
 	error = clGetPlatformIDs(1, &platform, NULL);
 	checkOpenCLError(error, "Failed to find OpenCL platform.");
@@ -58,7 +32,7 @@ polyfinder_gpu::polyfinder_gpu(unsigned short _m, unsigned short _t)
 	}
 
 	program = clCreateProgramWithSource(context, 1, (const char**)&kernelSource, NULL, &error);
-	checkOpenCLError(error, "Failed to create program with source.");
+	checkOpenCLError(error, "Failed to create program.");
 
 	error = clBuildProgram(program, 1, &device, NULL, NULL, NULL);
 	if (error != CL_SUCCESS) {
@@ -70,43 +44,45 @@ polyfinder_gpu::polyfinder_gpu(unsigned short _m, unsigned short _t)
 		free(log);
 		checkOpenCLError(error, "Failed to build program.");
 	}
+
 	kernel = clCreateKernel(program, "polyfinder_kernel", &error);
 	checkOpenCLError(error, "Failed to create kernel.");
+}
 
-	size_t value;
-	clGetDeviceInfo(device, CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG, sizeof(size_t), &value, NULL);
-	printf("Max bit on your gpu: %d\n", value);
+PolyfinderResult polyfinder_gpu::find_cyclic_polynom_gpu() {
+	double start_time = omp_get_wtime();
+	init_opencl();
 
-	do
-	{
-		candidates = get_candidates(k);
+	long long result_candidate = -1;
+	do {
+		long long* candidates = get_candidates(k);
+		++iterations;
 
-		// Kernel's buffers
-		candidates_buffer = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(long long) * count, candidates, &error);
+		cl_int error;
+		cl_mem candidates_buffer = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(long long) * count, candidates, &error);
 		checkOpenCLError(error, "Failed to create candidates buffer.");
-		stop_buffer = clCreateBuffer(context, CL_MEM_READ_WRITE, sizeof(int), 0, &error);
+
+		cl_mem stop_buffer = clCreateBuffer(context, CL_MEM_READ_WRITE, sizeof(int), 0, &error);
 		checkOpenCLError(error, "Failed to create stop buffer.");
-		result_candidate_buffer = clCreateBuffer(context, CL_MEM_WRITE_ONLY, sizeof(long long), NULL, &error);
+
+		cl_mem result_candidate_buffer = clCreateBuffer(context, CL_MEM_WRITE_ONLY, sizeof(long long), NULL, &error);
 		checkOpenCLError(error, "Failed to create result candidate buffer.");
+
 		error = clEnqueueWriteBuffer(queue, stop_buffer, CL_TRUE, 0, sizeof(int), &stop, 0, nullptr, nullptr);
 		checkOpenCLError(error, "Failed to write stop buffer.");
 
-		// Kernel's arguments
-		int kernelArgIndex = 0;
-		error |= clSetKernelArg(kernel, kernelArgIndex++, sizeof(cl_mem), &candidates_buffer);
-		error |= clSetKernelArg(kernel, kernelArgIndex++, sizeof(cl_mem), &stop_buffer);
-		error |= clSetKernelArg(kernel, kernelArgIndex++, sizeof(cl_mem), &result_candidate_buffer);
-		error |= clSetKernelArg(kernel, kernelArgIndex++, sizeof(int), &count);
-		error |= clSetKernelArg(kernel, kernelArgIndex++, sizeof(int), &m);
-		error |= clSetKernelArg(kernel, kernelArgIndex++, sizeof(int), &t);
-		error |= clSetKernelArg(kernel, kernelArgIndex++, sizeof(int), &d);
-		error |= clSetKernelArg(kernel, kernelArgIndex++, sizeof(int), &n);
+		int arg = 0;
+		error |= clSetKernelArg(kernel, arg++, sizeof(cl_mem), &candidates_buffer);
+		error |= clSetKernelArg(kernel, arg++, sizeof(cl_mem), &stop_buffer);
+		error |= clSetKernelArg(kernel, arg++, sizeof(cl_mem), &result_candidate_buffer);
+		error |= clSetKernelArg(kernel, arg++, sizeof(int), &count);
+		error |= clSetKernelArg(kernel, arg++, sizeof(int), &m);
+		error |= clSetKernelArg(kernel, arg++, sizeof(int), &t);
+		error |= clSetKernelArg(kernel, arg++, sizeof(int), &d);
+		error |= clSetKernelArg(kernel, arg++, sizeof(int), &n);
 		checkOpenCLError(error, "Failed to set kernel arguments.");
 
-		global_size = count;
-		local_size = 2;
-
-		// Kernel start
+		size_t global_size = count;
 		error = clEnqueueNDRangeKernel(queue, kernel, 1, nullptr, &global_size, nullptr, 0, nullptr, nullptr);
 		checkOpenCLError(error, "Failed to enqueue NDRange kernel.");
 		clFinish(queue);
@@ -114,26 +90,36 @@ polyfinder_gpu::polyfinder_gpu(unsigned short _m, unsigned short _t)
 		error = clEnqueueReadBuffer(queue, stop_buffer, CL_TRUE, 0, sizeof(int), &stop, 0, nullptr, nullptr);
 		checkOpenCLError(error, "Failed to read stop buffer.");
 
-		// Если stop == 1, читаем result_candidate и завершаем цикл
 		if (stop == 1) {
 			error = clEnqueueReadBuffer(queue, result_candidate_buffer, CL_TRUE, 0, sizeof(long long), &result_candidate, 0, nullptr, nullptr);
 			checkOpenCLError(error, "Failed to read result candidate buffer.");
-			printf("Result candidate from kernel: %d\n", result_candidate);
-			break;  // Выход из цикла, так как stop == 1
 		}
 
 		clReleaseMemObject(candidates_buffer);
 		clReleaseMemObject(stop_buffer);
 		clReleaseMemObject(result_candidate_buffer);
 
-		if (!stop)
-		{
+		delete[] candidates;
+
+		if (!stop) {
 			k++;
 			n++;
-			w = d;
 		}
 	} while (!stop);
-	printf("Kernel ends here.");
+
+	double end_time = omp_get_wtime();
+
+	// Очистка ресурсов
+	clReleaseKernel(kernel);
+	clReleaseProgram(program);
+	clReleaseCommandQueue(queue);
+	clReleaseContext(context);
+
+	PolyfinderResult r;
+	r.polynom = result_candidate;
+	r.iterations = iterations;
+	r.time_seconds = end_time - start_time;
+	return r;
 }
 
 long long polyfinder_gpu::get_candidate(int k) {
@@ -183,7 +169,7 @@ int polyfinder_gpu::get_k(int  m, int  t)
 	{
 		count = 1;
 		n = k + m;
-		mask = 1 << k;
+		mask = static_cast<unsigned long long>(1) << k; // for what
 		for (short i = 1; i <= t; i++)
 		{
 			fact1 = factorial(i, n);

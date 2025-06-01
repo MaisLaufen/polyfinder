@@ -1,6 +1,0 @@
-polynom is cyclic!
-120iterations.
-full time:0.0251994
-full count:44
-m: 2 t: 2
-11011011

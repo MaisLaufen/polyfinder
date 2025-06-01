@@ -1,74 +1,51 @@
-# ----------------------
-# Общие исключения
-# ----------------------
-*.obj
-*.o
-*.exe
-*.log
-*.pch
-*.pdb
-*.ilk
-*.idb
-*.tmp
-*.bak
+# ==== Visual Studio ====
+.vs/
 *.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+*.tlog
+*.lastbuildstate
+*.ipch
+*.pch
+*.aps
 *.ncb
 *.sdf
 *.opensdf
-*.user
-*.aps
 *.cache
+*.log
 *.db
-*.opendb
-*.tlog
-*.lastbuildstate
-*.VC.db
-*.VC.VC.opendb
-*.ipch
+*.db-shm
+*.db-wal
+*.backup
+*.layout.backup
+*.ilk
 *.iobj
 *.ipdb
+
+# ==== Build output ====
+x64/
+x65/
+x86/
+Debug/
+Release/
+build/
+output/
+bin/
+*.exe
 *.dll
 *.lib
 *.exp
-
-# ----------------------
-# Visual Studio
-# ----------------------
-.vs/
-*.vcxproj.user
-*.vcxproj.filters
-*.sln.docstates
-
-# ----------------------
-# CMake (на случай использования)
-# ----------------------
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-build/
-build-*/
-compile_commands.json
-
-# ----------------------
-# Каталоги сборки
-# ----------------------
-Debug/
-Release/
-x64/
-x65/
-bin/
-output/
+*.obj
+*.o
 *.out
 
-# ----------------------
-# Системные файлы
-# ----------------------
+# ==== System ====
 .DS_Store
 Thumbs.db
 
-# ----------------------
-# Git
-# ----------------------
+# ==== Git ====
 *.orig
 *.rej
